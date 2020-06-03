@@ -1,0 +1,46 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.aa.bb</groupId>
+  <artifactId>maven_web</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>war</packaging>
+
+  <name>maven_web</name>
+  <url>http://maven.apache.org</url>
+    <dependencies>
+  	<!-- 加入Servlet的jar包 -->
+	<dependency>
+	    <groupId>javax.servlet</groupId>
+	    <artifactId>javax.servlet-api</artifactId>
+	    <version>3.1.0</version>
+	    <scope>provided</scope>
+	</dependency>
+	
+	<!-- 加入jsp的jar包 -->
+	<dependency>
+	    <groupId>javax.servlet.jsp</groupId>
+	    <artifactId>jsp-api</artifactId>
+	    <version>2.1</version>
+	    <scope>provided</scope>
+	</dependency>
+  </dependencies>
+   <build>
+	        <plugins>
+	            <!-- 配置Tomcat插件 -->
+	            <plugin>
+	                <groupId>org.apache.tomcat.maven</groupId>
+	                <artifactId>tomcat7-maven-plugin</artifactId>
+	                <configuration>
+	                    <port>8080</port>
+	                    <path>/app1</path><!-- 启动容器后访问的地址，如果使用热部署，/将部署到ROOT中，/myProject 将项目名修改为myProject,将在ROOT同级目录中建立myProject目录-->
+	                    <!-- 以下配置是事项热部署 -->
+	                    <url>http://localhost:8080/manager/text</url> <!--tomcat的地址，后面/manager/text不能变--> 
+	                    <username>tomcat</username>
+	                    <password>tomcat</password>
+	                </configuration>
+	            </plugin>
+	        </plugins>
+	     </build>
+</project>
